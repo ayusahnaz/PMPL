@@ -9,6 +9,8 @@
 			{% csrf_token %}
 		</form>
 
+		<span>{{ comment }}</span>
+		
 		<table id="id_list_table">
 			<!--Membuat multiple display list-->
 			{% for item in items %}
