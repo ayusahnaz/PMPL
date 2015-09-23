@@ -12,15 +12,19 @@ def home_page(request):
     countsItem = Item.objects.count()
     comment = 'yey, waktunya berlibur'
 
-    if countsItem > 0:
-    	comment = 'sibuk tapi santai'
-    if countsItem >= 5:
-    	comment = 'oh tidak'
     return render(request, 'home.html', {'comment': comment})
 
 def view_list(request, list_id):
     list_ = List.objects.get(id=list_id)
-    return render(request, 'list.html', {'list': list_})
+    comment = ''
+    countList = Item.objects.filter(list_id=list.id).count()
+    if countList == 0:
+        comment = 'yey, waktunya berlibur'
+    elif (countList > 0) and (countList < 5):
+        comment = 'sibuk tapi santai'
+    else:
+        comment = 'oh tidak'
+    return render(request, 'list.html', {'list': list_, 'comment': comment})
 
 def new_list(request):
     list_ = List.objects.create()

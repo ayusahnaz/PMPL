@@ -33,12 +33,12 @@ class HomePageTest(TestCase):
         list_ = List.objects.create()
         Item.objects.create(text='itemey 1', list=list_)
 
-        request = HttpRequest()
-        response = home_page(request)
+        #request = HttpRequest()
+        response = self.client.get('/lists/%d/' % (list_.id,))
 
-        self.assertLess(Item.objects.count(), 5)
-        self.assertGreater(Item.objects.count(), 0)
-        self.assertIn('sibuk tapi santai', response.content.decode())
+        self.assertLess(Item.objects.filter(list_id=list.id).count(), 5)
+        self.assertGreater(Item.objects.filter(list_id=list.id).count(), 0)
+        self.assertContains(response, 'sibuk tapi santai')
 
     def test_home_page_displays_comments_less_five_near_five(self):
         list_ = List.objects.create()
@@ -47,12 +47,12 @@ class HomePageTest(TestCase):
         Item.objects.create(text='itemey 3', list=list_)
         Item.objects.create(text='itemey 4', list=list_)
 
-        request = HttpRequest()
-        response = home_page(request)
+        #request = HttpRequest()
+        response = self.client.get('/lists/%d/' % (list_.id,))
 
-        self.assertLess(Item.objects.count(), 5)
-        self.assertGreater(Item.objects.count(), 0)
-        self.assertIn('sibuk tapi santai', response.content.decode())
+        self.assertLess(Item.objects.filter(list_id=list.id).count(), 5)
+        self.assertGreater(Item.objects.filter(list_id=list.id).count(), 0)
+        self.assertContains(response, 'sibuk tapi santai')
 
     def test_home_page_displays_comments_greater_equal_five(self):
         list_ = List.objects.create()
@@ -62,11 +62,11 @@ class HomePageTest(TestCase):
         Item.objects.create(text='itemey 4', list=list_)
         Item.objects.create(text='itemey 5', list=list_)
 
-        request = HttpRequest()
-        response = home_page(request)
+        #request = HttpRequest()
+        response = self.client.get('/lists/%d/' % (list_.id,))
 
-        self.assertGreaterEqual(Item.objects.count(), 5)
-        self.assertIn('oh tidak', response.content.decode())
+        self.assertGreaterEqual(Item.objects.filter(list_id=list.id).count(), 5)
+        self.assertContains(response, 'oh tidak')
 
 class ListAndItemModelsTest(TestCase):
 
