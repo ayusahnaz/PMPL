@@ -17,7 +17,7 @@ def home_page(request):
 def view_list(request, list_id):
     list_ = List.objects.get(id=list_id)
     comment = ''
-    countList = Item.objects.filter(list_id=list.id).count()
+    countList = Item.objects.filter(list_id=list_.id).count()
     if countList == 0:
         comment = 'yey, waktunya berlibur'
     elif (countList > 0) and (countList < 5):
