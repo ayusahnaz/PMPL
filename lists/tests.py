@@ -68,25 +68,6 @@ class HomePageTest(TestCase):
         self.assertGreaterEqual(Item.objects.count(), 5)
         self.assertIn('oh tidak', response.content.decode())
 
-#class ItemModelTest(TestCase):
-
-#    def test_saving_and_retrieving_items(self):
-#        first_item = Item()
-#        first_item.text = 'The first (ever) list item'
-#        first_item.save()
-
-#        second_item = Item()
-#        second_item.text = 'Item the second'
-#        second_item.save()
-
-#        saved_items = Item.objects.all()
-#       self.assertEqual(saved_items.count(), 2)
-
-#        first_saved_item = saved_items[0]
-#        second_saved_item = saved_items[1]
-#        self.assertEqual(first_saved_item.text, 'The first (ever) list item')
-#       self.assertEqual(second_saved_item.text, 'Item the second')
-
 class ListAndItemModelsTest(TestCase):
 
     def test_saving_and_retrieving_items(self):
@@ -143,16 +124,6 @@ class ListViewTest(TestCase):
         correct_list = List.objects.create()
         response = self.client.get('/lists/%d/' % (correct_list.id,))
         self.assertEqual(response.context['list'], correct_list)
-
-    #def test_displays_all_items(self):
-    #    list_ = List.objects.create()
-    #    Item.objects.create(text='itemey 1', list=list_)
-    #    Item.objects.create(text='itemey 2', list=list_)
-
-    #    response = self.client.get('/lists/the-only-list-in-the-world/')
-
-    #    self.assertContains(response, 'itemey 1')
-    #    self.assertContains(response, 'itemey 2')
 
 class NewListTest(TestCase):
 
