@@ -36,8 +36,8 @@ class HomePageTest(TestCase):
         #request = HttpRequest()
         response = self.client.get('/lists/%d/' % (list_.id,))
 
-        self.assertLess(Item.objects.filter(list_id=list.id).count(), 5)
-        self.assertGreater(Item.objects.filter(list_id=list.id).count(), 0)
+        self.assertLess(Item.objects.count(), 5)
+        self.assertGreater(Item.objects.count(), 0)
         self.assertContains(response, 'sibuk tapi santai')
 
     def test_home_page_displays_comments_less_five_near_five(self):
@@ -50,8 +50,8 @@ class HomePageTest(TestCase):
         #request = HttpRequest()
         response = self.client.get('/lists/%d/' % (list_.id,))
 
-        self.assertLess(Item.objects.filter(list_id=list.id).count(), 5)
-        self.assertGreater(Item.objects.filter(list_id=list.id).count(), 0)
+        self.assertLess(Item.objects.count(), 5)
+        self.assertGreater(Item.objects.count(), 0)
         self.assertContains(response, 'sibuk tapi santai')
 
     def test_home_page_displays_comments_greater_equal_five(self):
@@ -65,7 +65,7 @@ class HomePageTest(TestCase):
         #request = HttpRequest()
         response = self.client.get('/lists/%d/' % (list_.id,))
 
-        self.assertGreaterEqual(Item.objects.filter(list_id=list.id).count(), 5)
+        self.assertGreaterEqual(Item.objects.count(), 5)
         self.assertContains(response, 'oh tidak')
 
 class ListAndItemModelsTest(TestCase):
