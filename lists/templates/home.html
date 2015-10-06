@@ -11,12 +11,6 @@
 		</form>
 
 		<span>{{ comment }}</span>
-		
-		<table id="id_list_table">
-			<!--Membuat multiple display list-->
-			{% for item in items %}
-				<tr><td> {{ forloop.counter }}: {{ item.text }}</td></tr>
-			{% endfor %}
-		</table>
+
 	</body>
 </html>
