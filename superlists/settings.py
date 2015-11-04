@@ -14,7 +14,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 #----------------------------local----------------------------------#
 import os
-import dj_database_url
+#import dj_database_url
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 #--------------------------sampe sini--------------------------------#
@@ -24,11 +24,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = ')!^1d(0qsz)9e47@5vbs@75x)@4v0%$^&*ke*w(+s(712&i9ye'
-
+####
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+TEMPLATE_DEBUG = DEBUG
+
+#Needed when DEBUG=False
+ALLOWED_HOSTS = ['pmpl-ayu.cloudapp.net']
 
 
 # Application definition
