@@ -9,10 +9,17 @@ def home_page(request):
     #    return redirect('/lists/the-only-list-in-the-world/')
 
     #items = Item.objects.all()
+    #countsItem = Item.objects.count()
+    #comment = 'yey, waktunya berlibur'
+
+    return render(request, 'index.html')
+
+def list_page(request):
     countsItem = Item.objects.count()
     comment = 'yey, waktunya berlibur'
 
     return render(request, 'home.html', {'comment': comment})
+
 
 def view_list(request, list_id):
     list_ = List.objects.get(id=list_id)

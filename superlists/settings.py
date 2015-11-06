@@ -26,12 +26,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = ')!^1d(0qsz)9e47@5vbs@75x)@4v0%$^&*ke*w(+s(712&i9ye'
 ####
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-TEMPLATE_DEBUG = DEBUG
+#TEMPLATE_DEBUG = DEBUG
 
 #Needed when DEBUG=False
-ALLOWED_HOSTS = ['pmpl-ayu.cloudapp.net']
+ALLOWED_HOSTS = []
 
 
 # Application definition
