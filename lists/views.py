@@ -19,12 +19,27 @@ def home_page(request):
 
     return render(request, 'home.html', {'comment': comment})
 
-def list_page(request):
+def todo_list(request):
+    #if request.method == 'POST':
+    #    Item.objects.create(text=request.POST['item_text'])
+    #    return redirect('/lists/the-only-list-in-the-world/')
+
+    #items = Item.objects.all()
+    #countsItem = Item.objects.count()
+    #comment = 'yey, waktunya berlibur'
+
+    #return render(request, 'index.html')
     countsItem = Item.objects.count()
     comment = 'yey, waktunya berlibur'
 
     return render(request, 'home.html', {'comment': comment})
 
+def blog(request):
+    # countsItem = Item.objects.count()
+    # comment = 'yey, waktunya berlibur'
+
+    # return render(request, 'home.html', {'comment': comment})
+    return render(request, 'index.html')
 
 def view_list(request, list_id):
     list_ = List.objects.get(id=list_id)
